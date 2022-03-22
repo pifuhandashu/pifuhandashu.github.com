@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>test</title>
+    <url>/2022/03/21/test/</url>
+    <content><![CDATA[<h1 id="行客栈"><a href="#行客栈" class="headerlink" title="行客栈"></a>行客栈</h1><h2 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h2><p>hello 欢迎来的我的个人博客，希望和你共同进步</p>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>导航</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue-study-00</title>
+    <url>/2022/03/22/vue-study-00/</url>
+    <content><![CDATA[<p>﻿﻿</p>
+<h2 id="一、-Vue-js简介"><a href="#一、-Vue-js简介" class="headerlink" title="一、 Vue.js简介"></a>一、 Vue.js简介</h2><h3 id="1-Vue-js是什么"><a href="#1-Vue-js是什么" class="headerlink" title="1. Vue.js是什么"></a>1. Vue.js是什么</h3><p>  <strong>Vue.js</strong>也称为Vue，读音/vju:/，类似view，错误读音v-u-e<br>  版本：v1.0 v2.0</p>
+<ul>
+<li>是一个构建用户界面的框架</li>
+<li>是一个轻量级MVVM（Model-View-ViewModel）框架，和angular、react类似，其实就是所谓的数据双向绑定</li>
+<li>数据驱动+组件化的前端开发（核心思想）</li>
+<li>通过简单的API实现<strong>响应式的数据绑定</strong>和<strong>组合的视图组件</strong></li>
+<li>更容易上手、小巧</li>
+</ul>
+<p>  参考：<a href="https://cn.vuejs.org/">官网</a></p>
+<h3 id="2-vue和angular的区别"><a href="#2-vue和angular的区别" class="headerlink" title="2.vue和angular的区别"></a>2.vue和angular的区别</h3><span id="more"></span>
+<h4 id="2-1-angular"><a href="#2-1-angular" class="headerlink" title="2.1 angular"></a>2.1 angular</h4><ul>
+<li>上手较难</li>
+<li>指令以ng-xxx开头</li>
+<li>所有属性和方法都存储在$scope中</li>
+<li>由google维护</li>
+</ul>
+<h4 id="2-2-vue"><a href="#2-2-vue" class="headerlink" title="2.2 vue"></a>2.2 vue</h4><ul>
+<li>简单、易学、更轻量</li>
+<li>指令以v-xxx开头</li>
+<li>HTML代码+JSON数据，再创建一个vue实例</li>
+<li>由个人维护：<strong>尤雨溪</strong>，华人，目前就职于阿里巴巴，2014.2开源了vue.js库</li>
+</ul>
+<p> 共同点：<code>都不兼容低版本IE</code><br> 对比：GitHub上vue的stars数量大约是angular的两倍</p>
+<h2 id="二、起步"><a href="#二、起步" class="headerlink" title="二、起步"></a>二、起步</h2><h3 id="1-下载核心库vue-js"><a href="#1-下载核心库vue-js" class="headerlink" title="1. 下载核心库vue.js"></a>1. 下载核心库vue.js</h3><pre><code>bower info vue
+npm init --yes
+cnpm install vue --save
+版本 v2.3.4 目前最新版本(2017.6.29)
+
+vue2.0和1.0相比，最大的变化就是引入了Virtual DOM（虚拟DOM）,页面更新效率更高，速度更快
+</code></pre>
+<h3 id="2-Hello-World（对比angular）"><a href="#2-Hello-World（对比angular）" class="headerlink" title="2. Hello World（对比angular）"></a>2. Hello World（对比angular）</h3><h4 id="2-1-angular实现"><a href="#2-1-angular实现" class="headerlink" title="2.1 angular实现"></a>2.1 angular实现</h4><pre><code>js:
+    let app=angular.module(&#39;myApp&#39;,[]);
+    app.controller(&#39;MyController&#39;,[&#39;$scope&#39;,function($scope)&#123;
+        $scope.msg=&#39;Hello World&#39;;
+    &#125;]);
+html:    
+    &lt;html ng-app=&quot;myApp&quot;&gt;
+        &lt;div ng-controller=&quot;MyController&quot;&gt;
+            &#123;&#123;msg&#125;&#125;
+        &lt;/div&gt;
+    &lt;/html&gt;
+</code></pre>
+<h4 id="2-2-vue实现"><a href="#2-2-vue实现" class="headerlink" title="2.2 vue实现"></a>2.2 vue实现</h4><pre><code>js:
+    new Vue(&#123;
+        el:&#39;#itany&#39;, //指定关联的选择器
+        data:&#123; //存储数据
+            msg:&#39;Hello World&#39;,
+            name:&#39;tom&#39;
+        &#125;
+    &#125;);
+html:
+    &lt;div id=&quot;itany&quot;&gt;
+        &#123;&#123;msg&#125;&#125;
+    &lt;/div&gt;
+</code></pre>
+<h3 id="3-安装vue-devtools插件，便于在chrome中调试vue"><a href="#3-安装vue-devtools插件，便于在chrome中调试vue" class="headerlink" title="3. 安装vue-devtools插件，便于在chrome中调试vue"></a>3. 安装vue-devtools插件，便于在chrome中调试vue</h3><pre><code>直接将vue-devtools解压缩，然后将文件夹中的chrome拖放到扩展程序中
+
+//配置是否允许vue-devtools检查代码，方便调试，生产环境中需要设置为false
+    Vue.config.devtools=false;
+    Vue.config.productionTip=false; //阻止vue启动时生成生产消息
+</code></pre>
+<h2 id="三、-常用指令"><a href="#三、-常用指令" class="headerlink" title="三、 常用指令"></a>三、 常用指令</h2><h3 id="1-什么是指令？"><a href="#1-什么是指令？" class="headerlink" title="1. 什么是指令？"></a>1. 什么是指令？</h3><pre><code>用来扩展html标签的功能
+angular中常用的指令：
+    ng-model
+    ng-repeat
+    ng-click
+    ng-show/ng-hide
+    ng-if
+</code></pre>
+<h3 id="2-vue中常用的指令"><a href="#2-vue中常用的指令" class="headerlink" title="2. vue中常用的指令"></a>2. vue中常用的指令</h3><ul>
+<li><p>v-model<br>双向数据绑定，一般用于表单元素</p>
+</li>
+<li><p>v-for<br>对数组或对象进行循环操作，使用的是v-for，不是v-repeat<br>注：在vue1.0中提供了隐式变量，如$index、$key</p>
+<pre><code>在vue2.0中去除了隐式变量，已被废除            
+</code></pre>
+</li>
+<li><p>v-on<br>用来绑定事件，用法：v-on:事件=”函数”</p>
+</li>
+<li><p>v-show/v-if<br>用来显示或隐藏元素，v-show是通过display实现，v-if是每次删除后再重新创建，与angular中类似 </p>
+</li>
+</ul>
+<h2 id="四、-练习：用户管理"><a href="#四、-练习：用户管理" class="headerlink" title="四、 练习：用户管理"></a>四、 练习：用户管理</h2><pre><code>使用BootStrap+Vue.js   
+</code></pre>
+<h2 id="五、-事件和属性"><a href="#五、-事件和属性" class="headerlink" title="五、 事件和属性"></a>五、 事件和属性</h2><h3 id="1-事件"><a href="#1-事件" class="headerlink" title="1. 事件"></a>1. 事件</h3><h4 id="1-1-事件简写"><a href="#1-1-事件简写" class="headerlink" title="1.1 事件简写"></a>1.1 事件简写</h4><pre><code>v-on:click=&quot;&quot;    
+简写方式 @click=&quot;&quot;
+</code></pre>
+<h4 id="1-2-事件对象-event"><a href="#1-2-事件对象-event" class="headerlink" title="1.2 事件对象$event"></a>1.2 事件对象$event</h4><pre><code>包含事件相关信息，如事件源、事件类型、偏移量
+target、type、offsetx
+</code></pre>
+<h4 id="1-3-事件冒泡"><a href="#1-3-事件冒泡" class="headerlink" title="1.3 事件冒泡"></a>1.3 事件冒泡</h4><pre><code>阻止事件冒泡：
+    a)原生js方式，依赖于事件对象
+    b)vue方式，不依赖于事件对象
+        @click.stop
+</code></pre>
+<h4 id="1-4-事件默认行为"><a href="#1-4-事件默认行为" class="headerlink" title="1.4 事件默认行为"></a>1.4 事件默认行为</h4><pre><code>阻止默认行为：
+    a)原生js方式，依赖于事件对象
+</code></pre>
+<h4 id="1-5-键盘事件"><a href="#1-5-键盘事件" class="headerlink" title="1.5 键盘事件"></a>1.5 键盘事件</h4><pre><code>回车：@keydown.13 或@keydown.enter
+上：@keydown.38 或@keydown.up
+
+默认没有@keydown.a/b/c...事件，可以自定义键盘事件，也称为自定义键码或自定义键位别名
+</code></pre>
+<h4 id="1-6-事件修饰符"><a href="#1-6-事件修饰符" class="headerlink" title="1.6 事件修饰符"></a>1.6 事件修饰符</h4><pre><code>.stop - 调用 event.stopPropagation()。
+.prevent - 调用 event.preventDefault()。
+.&#123;keyCode | keyAlias&#125; - 只当事件是从特定键触发时才触发回调。
+.native - 监听组件根元素的原生事件。
+.once - 只触发一次回调。
+</code></pre>
+<h3 id="2-属性"><a href="#2-属性" class="headerlink" title="2. 属性"></a>2. 属性</h3><h4 id="2-1-属性绑定和属性的简写"><a href="#2-1-属性绑定和属性的简写" class="headerlink" title="2.1 属性绑定和属性的简写"></a>2.1 属性绑定和属性的简写</h4><pre><code>v-bind 用于属性绑定， v-bind:属性=&quot;&quot;
+
+属性的简写：
+    v-bind:src=&quot;&quot; 简写为 :src=&quot;&quot;
+</code></pre>
+<h4 id="2-2-class和style属性"><a href="#2-2-class和style属性" class="headerlink" title="2.2 class和style属性"></a>2.2 class和style属性</h4><pre><code>绑定class和style属性时语法比较复杂：
+</code></pre>
+<h2 id="六、-模板"><a href="#六、-模板" class="headerlink" title="六、 模板"></a>六、 模板</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><pre><code>Vue.js使用基于HTML的模板语法，可以将DOM绑定到Vue实例中的数据
+模板就是&#123;&#123;&#125;&#125;，用来进行数据绑定，显示在页面中
+    也称为Mustache语法
+
+### 2. 数据绑定的方式
+
+    a.双向绑定
+        v-model
+    b.单向绑定    
+        方式1：使用两对大括号&#123;&#123;&#125;&#125;，可能会出现闪烁的问题，可以使用v-cloak解决
+    方式2：使用v-text、v-html
+</code></pre>
+<h3 id="3-其他指令"><a href="#3-其他指令" class="headerlink" title="3. 其他指令"></a>3. 其他指令</h3><pre><code>v-once 数据只绑定一次  使用方式是&#123;&#123;&#125;&#125; 不是v-once='msg'
+    v-pre 不编译，直接原样显示
+
+
+## 七、 过滤器
+
+### 1. 简介
+
+    用来过滤模型数据，在显示之前进行数据处理和筛选
+    语法：&#123;&#123; data | filter1(参数) | filter2(参数)&#125;&#125;
+</code></pre>
+<h3 id="2-关于内置过滤器"><a href="#2-关于内置过滤器" class="headerlink" title="2. 关于内置过滤器"></a>2. 关于内置过滤器</h3><pre><code>vue1.0中内置许多过滤器，如：
+    currency、uppercase、lowercase
+    limitBy
+    orderBy
+    filterBy
+vue2.0中已经删除了所有内置过滤器，全部被废除
+如何解决：
+    a.使用第三方工具库，如lodash、date-fns日期格式化、accounting.js货币格式化等
+    b.使用自定义过滤器
+</code></pre>
+<h3 id="3-自定义过滤器"><a href="#3-自定义过滤器" class="headerlink" title="3. 自定义过滤器"></a>3. 自定义过滤器</h3><pre><code>分类：全局过滤器、局部过滤器
+</code></pre>
+<h4 id="3-l-自定义全局过滤器"><a href="#3-l-自定义全局过滤器" class="headerlink" title="3.l 自定义全局过滤器"></a>3.l 自定义全局过滤器</h4><pre><code>使用全局方法Vue.filter(过滤器ID,过滤器函数)
+</code></pre>
+<h4 id="3-l-自定义局部过滤器"><a href="#3-l-自定义局部过滤器" class="headerlink" title="3.l 自定义局部过滤器"></a>3.l 自定义局部过滤器</h4>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>导航</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识mongoDB</title>
+    <url>/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/</url>
+    <content><![CDATA[<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><span id="more"></span>
+<p>==使用数据库==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use <span class="operator">&lt;</span>数据库名<span class="operator">&gt;</span></span><br><span class="line">如果数据库不存在，则创建数据库，否则切换到指定数据库</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175750340.png" alt="image-20220322175750340"></p>
+<p>==查看数据库==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span>  dbs</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175811738.png" alt="image-20220322175811738"></p>
+<p>==创建集合==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.createCollection(&quot;集合名&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>==查看当前数据库中有哪些集合==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> collections </span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175905498.png" alt="image-20220322175905498"></p>
+<p>==删除集合==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">drop</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>==插入文档数据==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">insert</span>(&#123;</span><br><span class="line">   key : &quot;value&quot;</span><br><span class="line">   ...           </span><br><span class="line">              </span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>==更新文档==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">update</span>(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span><span class="keyword">update</span><span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     multi: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>==删除文档==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span>justOne<span class="operator">&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>2.6版本之后</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     justOne: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>query</strong> :（可选）删除的文档的条件。</li>
+<li><strong>justOne</strong> : （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li><strong>writeConcern</strong> :（可选）抛出异常的级别。</li>
+</ul>
+<p>==查询文档==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">方式一：db.collection.find(query, projection)</span><br><span class="line">方式二：db.col.find().pretty()</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li><strong>query</strong> ：可选，使用查询操作符指定查询条件</li>
+<li><strong>projection</strong> ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+  </entry>
+</search>
