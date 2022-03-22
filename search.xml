@@ -245,4 +245,39 @@ vue2.0中已经删除了所有内置过滤器，全部被废除
         <category>数据库</category>
       </categories>
   </entry>
+  <entry>
+    <title>spring校验注解</title>
+    <url>/2022/03/22/spring%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<p><strong>实体字段校验 @NotNull、@NotEmpty、@NotBlank</strong></p>
+<span id="more"></span>
+
+<p><code>@NotNull</code></p>
+<blockquote>
+<p>不能为 null，但可以为 empty，一般用在 Integer 类型的基本数据类型的非空校验上，而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制</p>
+</blockquote>
+<p><code>@NotEmpty</code></p>
+<blockquote>
+<p>不能为 null，且长度必须大于 0，一般用在集合类上或者数组上</p>
+</blockquote>
+<p><code>@NotBlank</code></p>
+<blockquote>
+<p>只能作用在接收的 String 类型上，注意是只能，不能为 null，而且调用 trim() 后，长度必须大于 0即：必须有实际字符</p>
+</blockquote>
+<p><strong>例子</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span>: <span class="literal">false</span></span><br><span class="line"><span class="meta">@NotEmpty</span>:<span class="literal">false</span> </span><br><span class="line"><span class="meta">@NotBlank</span>:<span class="literal">false</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span>:<span class="literal">true</span></span><br><span class="line"><span class="meta">@NotEmpty</span>: <span class="literal">false</span></span><br><span class="line"><span class="meta">@NotBlank</span>: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot; &quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span>: <span class="literal">true</span></span><br><span class="line"><span class="meta">@NotEmpty</span>: <span class="literal">true</span></span><br><span class="line"><span class="meta">@NotBlank</span>: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;Hello World！&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@NotNull</span>: <span class="literal">true</span></span><br><span class="line"><span class="meta">@NotEmpty</span>:<span class="literal">true</span></span><br><span class="line"><span class="meta">@NotBlank</span>:<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><code>其他表单校验注解</code></p>
+<p><img src="/2022/03/22/spring%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/image-20220323000807854.png" alt="image-20220323000807854"></p>
+<p><img src="/2022/03/22/spring%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/image-20220323000849431.png" alt="image-20220323000849431"></p>
+<p>···<code> 感谢观看，我将持续为你更新更加有价值的文章</code></p>
+<p>参考文章：<br><a href="https://blog.csdn.net/weixin_49770443/article/details/109772162?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&utm_relevant_index=2">csdn地址文章链接</a></p>
+]]></content>
+      <categories>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>分享</tag>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
 </search>
