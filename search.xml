@@ -1,86 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2022/03/21/test/</url>
-    <content><![CDATA[<h1 id="行客栈"><a href="#行客栈" class="headerlink" title="行客栈"></a>行客栈</h1><h2 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h2><p>hello 欢迎来的我的个人博客，希望和你共同进步!!!!</p>
-<span id="more"></span>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>导航</tag>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识mongoDB</title>
-    <url>/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/</url>
-    <content><![CDATA[<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><span id="more"></span>
-<p>==使用数据库==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use <span class="operator">&lt;</span>数据库名<span class="operator">&gt;</span></span><br><span class="line">如果数据库不存在，则创建数据库，否则切换到指定数据库</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175750340.png" alt="image-20220322175750340"></p>
-<p>==查看数据库==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span>  dbs</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175811738.png" alt="image-20220322175811738"></p>
-<p>==创建集合==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.createCollection(&quot;集合名&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>==查看当前数据库中有哪些集合==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> collections </span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175905498.png" alt="image-20220322175905498"></p>
-<p>==删除集合==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">drop</span>()</span><br></pre></td></tr></table></figure>
-
-
-
-<p>==插入文档数据==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">insert</span>(&#123;</span><br><span class="line">   key : &quot;value&quot;</span><br><span class="line">   ...           </span><br><span class="line">              </span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>==更新文档==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">update</span>(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span><span class="keyword">update</span><span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     multi: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>==删除文档==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span>justOne<span class="operator">&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>2.6版本之后</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     justOne: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>参数说明：</strong></p>
-<ul>
-<li><strong>query</strong> :（可选）删除的文档的条件。</li>
-<li><strong>justOne</strong> : （可选）如果设为 true 或 1，则只删除一个文档。</li>
-<li><strong>writeConcern</strong> :（可选）抛出异常的级别。</li>
-</ul>
-<p>==查询文档==</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">方式一：db.collection.find(query, projection)</span><br><span class="line">方式二：db.col.find().pretty()</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数说明</strong></p>
-<ul>
-<li><strong>query</strong> ：可选，使用查询操作符指定查询条件</li>
-<li><strong>projection</strong> ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-  </entry>
-  <entry>
     <title>vue-study-00</title>
     <url>/2022/03/22/vue-study-00/</url>
     <content><![CDATA[<p>﻿﻿</p>
@@ -244,5 +164,85 @@ vue2.0中已经删除了所有内置过滤器，全部被废除
         <tag>导航</tag>
         <tag>分享</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2022/03/21/test/</url>
+    <content><![CDATA[<h1 id="行客栈"><a href="#行客栈" class="headerlink" title="行客栈"></a>行客栈</h1><h2 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h2><p>hello 欢迎来的我的个人博客，希望和你共同进步!!!!</p>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>导航</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识mongoDB</title>
+    <url>/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/</url>
+    <content><![CDATA[<h3 id="基本使用命令"><a href="#基本使用命令" class="headerlink" title="基本使用命令"></a>基本使用命令</h3><span id="more"></span>
+<p><code>使用数据库</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use <span class="operator">&lt;</span>数据库名<span class="operator">&gt;</span></span><br><span class="line">如果数据库不存在，则创建数据库，否则切换到指定数据库</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175750340.png" alt="image-20220322175750340"></p>
+<p><code>查看数据库</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span>  dbs</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175811738.png" alt="image-20220322175811738"></p>
+<p><code>创建集合</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.createCollection(&quot;集合名&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><code>查看当前数据库中有哪些集合</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> collections </span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2022/03/22/%E5%88%9D%E8%AF%86mongoDB/image-20220322175905498.png" alt="image-20220322175905498"></p>
+<p><code>删除集合</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">drop</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>插入文档数据</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">insert</span>(&#123;</span><br><span class="line">   key : &quot;value&quot;</span><br><span class="line">   ...           </span><br><span class="line">              </span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>更新文档</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.集合名.<span class="keyword">update</span>(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span><span class="keyword">update</span><span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     multi: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>删除文档</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   <span class="operator">&lt;</span>justOne<span class="operator">&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>==2.6版本之后==</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">   <span class="operator">&lt;</span>query<span class="operator">&gt;</span>,</span><br><span class="line">   &#123;</span><br><span class="line">     justOne: <span class="operator">&lt;</span><span class="type">boolean</span><span class="operator">&gt;</span>,</span><br><span class="line">     writeConcern: <span class="operator">&lt;</span>document<span class="operator">&gt;</span></span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>query</strong> :（可选）删除的文档的条件。</li>
+<li><strong>justOne</strong> : （可选）如果设为 true 或 1，则只删除一个文档。</li>
+<li><strong>writeConcern</strong> :（可选）抛出异常的级别。</li>
+</ul>
+<p><code>查询文档</code></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">方式一：db.collection.find(query, projection)</span><br><span class="line">方式二：db.col.find().pretty()</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong></p>
+<ul>
+<li><strong>query</strong> ：可选，使用查询操作符指定查询条件</li>
+<li><strong>projection</strong> ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
   </entry>
 </search>
